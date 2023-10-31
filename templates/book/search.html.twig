@@ -1,0 +1,12 @@
+
+<form method='post' action='/dql'>
+<label>search</label>
+<input type="text" name="test">
+<input type="submit" value ="search">
+
+</form>
+
+{%for i in form %}
+{{i.id}}
+{{i.title}}
+{% endfor %}

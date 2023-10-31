@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<table border="1">
+
+<thead>
+<tr>
+<th>username</th>
+<th>email</th>
+<th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+    {% for item in author %}
+<tr>
+<th>{{item.username}}</th>
+<th>{{item.email}}</th>
+
+<th>        <a class="btn btn-warning" href="{{path('update',{'id':item.id})  }}">update</a>
+<a class="btn btn-danger" href="{{path('delete',{'id':item.id})  }}">delete</a>
+
+</th>
+</tr>
+
+<br><br>
+
+
+
+    {% endfor %}
+</table>
+<p> By email</p>
+    <table border="1">
+
+<thead>
+<tr>
+<th>username</th>
+<th>email</th>
+<th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+    {% for item in au %}
+<tr>
+<th>{{item.username}}</th>
+<th>{{item.email}}</th>
+
+<th>        <a class="btn btn-warning" href="{{path('update',{'id':item.id})  }}">update</a>
+<a class="btn btn-danger" href="{{path('delete',{'id':item.id})  }}">delete</a>
+
+</th>
+</tr>
+
+<br><br>
+
+
+
+    {% endfor %}
+</table>
+</tbody>
+
+ {% endblock %}
+
+

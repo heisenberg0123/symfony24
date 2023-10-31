@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{% if b is empty %}
+<p>No books found</p>
+{% endif %}
+<form method="get">
+    <input type="text" name="id" placeholder="Search by Ref">
+    <button type="submit">Search</button>
+</form>
+<table border="1">
+
+<thead>
+<tr>
+<th>title</th>
+<th>publication Date</th>
+<th>published</th>
+<th>category</th>
+<th>author</th>
+<th>Action</th>
+
+
+
+</tr>
+</thead>
+<tbody>
+    {% for item in b %}
+<tr>
+<th>{{item.title}}</th>
+<th>{{item.publicationDate|date("m/d/Y") }}</th>
+<th>{{item.published}}</th>
+<th>{{item.category}}</th>
+<th>{{item.author}}</th>
+
+
+
+
+<th>        
+<a class="btn btn-warning" href="{{path('updateB',{'id':item.id})  }}">update</a>
+<a class="btn btn-danger" href="{{path('deleteB',{'id':item.id})  }}">delete</a>
+<a class="btn btn-danger" href="{{path('show',{'id':item.id})  }}">SHow</a>
+
+
+</th>
+</tr>
+
+    {% endfor %}
+</table>
+<p>by Author </p>
+    <table border="1">
+
+    <thead>
+    <tr>
+    <th>title</th>
+    <th>publication Date</th>
+    <th>published</th>
+    <th>category</th>
+    <th>author</th>
+    <th>Action</th>
+    
+    
+    
+    </tr>
+    </thead>
+    <tbody>
+        {% for item in bo %}
+    <tr>
+    <th>{{item.title}}</th>
+    <th>{{item.publicationDate|date("m/d/Y") }}</th>
+    <th>{{item.published}}</th>
+    <th>{{item.category}}</th>
+    <th>{{item.author}}</th>
+    
+    
+    
+    
+    <th>        
+    <a class="btn btn-warning" href="{{path('updateB',{'id':item.id})  }}">update</a>
+    <a class="btn btn-danger" href="{{path('deleteB',{'id':item.id})  }}">delete</a>
+    <a class="btn btn-danger" href="{{path('show',{'id':item.id})  }}">SHow</a>
+    
+    
+    </th>
+    </tr>
+    
+        {% endfor %}
+    </table>
+<p> |{{ b|length}} Nombre of published book</p>
+<p>{{ non|length }} number of unpublished book</p>
+<button><a href="{{path('addB')}}">add</a></button>
+</tbody>
+
+ {% endblock %}
+
+

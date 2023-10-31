@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+<h2>create book </h2>
+{{form_start(form)}}
+<div class="form-group">
+{{ form_label(form) }}
+{{ form_widget(form) }}
+</div>
+
+<button type="submit" class="bn-btn-info mt-2 text-blue">submit</button>
+
+{{form_end(form)}}
+</div>
+{% endblock %}
+
